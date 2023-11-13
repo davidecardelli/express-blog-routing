@@ -12,7 +12,7 @@ app.use(express.static("public"));
 
 // ! definisco le rotte e aggancio i controller per la gestione dei vari metodi
 app.get('/', (req, res) => {
-    res.send('<h1>Benvenuto nel mio blog!</h1> <br> <a href="/posts">I post del blog</a>');
+    res.send('<h1>Benvenuto nel mio blog!</h1> <br> <a href="/posts">I post del blog</a> <br> <a href="/posts/create">Crea nuovo post</a> ');
 });
 
 app.use("/posts", postsRouter)

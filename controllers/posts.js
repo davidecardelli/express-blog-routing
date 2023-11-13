@@ -30,6 +30,9 @@ const index = (req, res) => {
         json: () => {
             res.type("json").send({ posts });
         },
+        default: () => {
+            res.status(406).send("Not Acceptable");
+        },
     });
 };
 
@@ -48,6 +51,9 @@ const show = (req, res) => {
         json: () => {
             res.type("json").send({ post });
         },
+        default: () => {
+            res.status(406).send("Not Acceptable");
+        },
     });
 };
 
@@ -55,8 +61,10 @@ const show = (req, res) => {
 const create = (req, res) => {
     res.format({
         html: () => {
+            res.type("html").send("<h1>Creazione nuovo post</h1>");
         },
-        json: () => {
+        default: () => {
+            res.status(406).send("Not Acceptable");
         },
     });
 };
