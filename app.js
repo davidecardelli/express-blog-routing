@@ -2,8 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const app = express()
 
-// ! importo i controller
-const postsController = require("./controllers/posts.js");
+// ! importo il router 
+const postsRouter = require("./routers/posts.js");
 
 dotenv.config();
 
@@ -14,8 +14,8 @@ app.use(express.static("public"));
 app.get('/', (req, res) => {
     res.send('<h1>Benvenuto nel mio blog!</h1> <br> <a href="/posts">I post del blog</a>');
 });
-app.get("/posts", postsController.index);
 
+app.use("/posts", postsRouter)
 // ! metto in ascolto
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server running on http://localhost:${process.env.PORT}`)

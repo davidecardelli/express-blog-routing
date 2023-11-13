@@ -31,4 +31,34 @@ const index = (req, res) => {
     });
 };
 
-module.exports = { index };
+// ! show
+const show = (req, res) => {
+    res.format({
+        html: () => {
+        },
+        json: () => {
+        },
+    });
+};
+
+// ! create
+const create = (req, res) => {
+    res.format({
+        html: () => {
+        },
+        json: () => {
+        },
+    });
+};
+
+// ! download
+const download = (req, res) => {
+    res.format({
+        html: () => {
+        },
+        json: () => {
+        },
+    });
+};
+
+module.exports = { index, show, create, download };
