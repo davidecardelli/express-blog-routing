@@ -1,6 +1,10 @@
 // ! importo il 'db'
 const posts = require("../db/posts.js");
 
+//  ! importo path
+const path = require("path");
+
+
 // ! index
 const index = (req, res) => {
     res.format({
@@ -71,12 +75,19 @@ const create = (req, res) => {
 
 // ! download
 const download = (req, res) => {
-    res.format({
-        html: () => {
-        },
-        json: () => {
-        },
-    });
+    const post = findOrFail(req, res);
+
+    const filePath = path.resolve(
+        __dirname,
+        "..",
+        "public",
+        "img",
+        "posts",
+        post.image
+    );
+
+    const fileName = `${post.slug}.jpeg`;
+    res.download(filePath, fileName);
 };
 
 // ? Utils
